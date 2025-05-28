@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roboții Industriali</title>
+  <style>
+    /* ANIMAȚIE INTRARE */
+    #intro-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #000000; /* Fundal negru */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 1.5s ease-out 5s forwards;
+    }
+
+    #intro-animation h1 {
+      font-family: 'Georgia', serif;
+      font-size: 3.5em;
+      color: white; /* Text alb */
+      text-align: center;
+      text-shadow: none;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: titleZoom 4s ease-out forwards;
+    }
+
+    #intro-animation h1 span {
+      color: white; /* "Arădeana" va fi tot alb */
+    }
+
+    @keyframes titleZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+        filter: blur(8px);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* STILURI PAGINĂ */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 60px;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1a1a1a;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 20px;
+      background-color: #1e1e1e;
+      margin: 10px auto;
+      max-width: 900px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    a {
+      color: #bbbbbb;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    .galerie-img {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .galerie-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANIMAȚIE INTRARE -->
+<div id="intro-animation">
+  <h1>Roboți <span>Industriali</span></h1>
+</div>
+
+<header>
+  <h1>Roboții Industriali</h1>
+</header>
+
+<nav>
+  <a href="index.html">Acasa</a>
+  <a href="despre.html">Despre roboți</a>
+  <a href="activitate.html">Activitate</a>
+  <a href="galerie.html">Galerie</a>
+</nav>
+
+<section id="Acasa">
+  <h2>Acasa</h2>
+  <p>Aceasta este o prezentare despre si cum funcționează roboții industriali din lume.</p>
+  
+</section>
+
+<footer>
+  <p>&copy; 2025 Roboții Industriali– Toate drepturile rezervate</p>
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    // Verifică dacă animația a fost deja vizualizată
+    if (!localStorage.getItem('introShown')) {
+      const intro = document.getElementById('intro-animation');
+      
+      setTimeout(() => {
+        intro.remove();
+      }, 6000); // 6 secunde: 4s animație + 2s pauză
+
+      // Setează flag-ul pentru a indica că animația a fost arătată
+      localStorage.setItem('introShown', 'true');
+    } else {
+      // Dacă animația a fost deja arătată, ascunde-o imediat
+      const intro = document.getElementById('intro-animation');
+      if (intro) {
+        intro.remove();
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
